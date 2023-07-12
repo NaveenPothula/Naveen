@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 
-function App() {
+const App = () => {
+  const [imageURL, setImageURL] = useState('');
+
+  useEffect(() => {
+    fetchRandomImage();
+  }, []);
+
+  const fetchRandomImage = async () => {
+    try {
+      const response = await fetch('https://picsum.photos/400');
+      const imageSrc = response.url;
+      setImageURL(imageSrc);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const shareURL = window.location.href;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Helmet>
+        <meta property="og:image" content={imageURL} />
+        <meta name="twitter:image" content={imageURL} />
+      </Helmet>
+      <img className="image" src={imageURL} alt="Random" />
+      <div className="share-buttons">
+        <FacebookShareButton url={shareURL}>
+          <button>Share on Facebook</button>
+        </FacebookShareButton>
+        <TwitterShareButton url={shareURL}>
+          <button>Share on Twitter</button>
+        </TwitterShareButton>
+        <WhatsappShareButton url={shareURL}>
+          <button>Share on WhatsApp</button>
+        </WhatsappShareButton>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
