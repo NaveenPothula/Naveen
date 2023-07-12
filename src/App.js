@@ -33,6 +33,7 @@ const App = () => {
       <Helmet>
         <meta property="og:image" content={imageURL} />
         <meta name="twitter:image" content={imageURL} />
+        <meta name="description" content="my own description"/>
       </Helmet>
       <img className="image" src={imageURL} alt="Random" />
       <div className="share-buttons">
