@@ -5,24 +5,28 @@ import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 're
 const App = () => {
   const [imageURL, setImageURL] = useState('');
 
-  useEffect(() => {
-    fetchRandomImage();
-  }, []);
+  
 
   const fetchRandomImage = async () => {
     try {
       const response = await fetch('https://picsum.photos/400');
       const imageSrc = response.url;
       setImageURL(imageSrc);
-    } catch (error) {
+
+      
+    } catch (error) { 
       console.log(error);
     }
   };
+  useEffect(() => {
+    fetchRandomImage();
+    
+  }, []);
  
 
   const shareURL = "https://react-share.netlify.app/" 
 
- // console.log(imageURL)
+  console.log(imageURL)
 
   return (
     <div className="app">
