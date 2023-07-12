@@ -24,7 +24,7 @@ const App = () => {
   }, []);
  
 
-  const shareURL = "https://react-share.netlify.app/" 
+  const shareURL = "https://react-share.netlify.app" 
 
   console.log(imageURL)
 
