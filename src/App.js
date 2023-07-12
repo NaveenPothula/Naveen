@@ -18,8 +18,11 @@ const App = () => {
       console.log(error);
     }
   };
+ 
 
-  const shareURL = window.location.href;
+  const shareURL = "https://react-share.netlify.app/" 
+
+ // console.log(imageURL)
 
   return (
     <div className="app">
@@ -32,7 +35,7 @@ const App = () => {
         <FacebookShareButton url={shareURL}>
           <button>Share on Facebook</button>
         </FacebookShareButton>
-        <TwitterShareButton url={shareURL}>
+        <TwitterShareButton url={shareURL}>  
           <button>Share on Twitter</button>
         </TwitterShareButton>
         <WhatsappShareButton url={shareURL}>
