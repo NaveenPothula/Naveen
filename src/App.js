@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
   }, []);
  
 
-  const shareURL = "https://react-share.netlify.app" 
+  const shareURL = `https://react-share.netlify.app/${imageURL}`
 
   console.log(imageURL)
 
