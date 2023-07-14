@@ -10,7 +10,7 @@ const ParamsPage = ()=>{
    // const shareURL = `https://react-share.netlify.app/${imageUrl}`
    //const shareURL = `https://react-share.netlify.app/${imageUrl}`
    const shareURL = window.location.href
-   console.log(shareURL)
+   console.log(shareURL)  
     return(
         <div>
            <Helmet>
